@@ -199,48 +199,88 @@ rewards                                                   |string     | rewards 
 >> <h3> Sample of Payload in Datalake </h3>
 -------------------------
 > one_piece
+>> collection not_fruit_user
+
 ```
-db.censu.findOne()
+> db.not_fruit_user.findOne()
 {
-        "_id" : "4C6501755H",
-        "first_name" : "Christopher",
-        "last_name" : "Johnson",
-        "gender" : "M",
-        "race" : "Tenryūbitos",
-        "birthday" : "1971-12-24",
-        "age" : "50",
-        "akuma_no_mi" : {
-                "type_of_fruit" : "Paramecia",
-                "fruit_name" : "Denis d'or Denis d'or no Mi",
-                "fruit_category" : "Threatening",
-                "number_times_resurrected" : "55"
-        },
-        "job" : {
-                "job" : "Swordsman",
-                "current_job" : "YES",
-                "contracting_company" : "Spencer, Pittman and Jackson",
-                "start_date" : "2003/10/24",
-                "year_working_time" : "18",
-                "initial_salary" : "4691.0",
-                "current_wage" : "5113.19"
-        },
-        "type_of_tatoo" : "it does not have",
-        "where_in_body" : "it does not have",
-        "color_of_tatoo" : "it does not have",
-        "color_eyes" : "Brown",
-        "color_hair" : "Brown",
-        "has_disability" : "amputation of the right leg",
-        "security_social_number" : "175-10-8132",
-        "phone" : "317.252.5174x26654",
-        "rewards" : {
-                "main_crime" : "Murders",
-                "code_crime" : "10",
-                "tax_collected_government" : 38095.11,
-                "debt_with_government" : "33199.11",
-                "rewards" : "966250.98"
-        },
-        "sketch" : "https://placeimg.com/132/819/any",
-        "data_of_register" : 20210428
+        "_id" : ObjectId("61a80938f9fae20940d6d7a9"),
+        "payload" : {
+                "personal_information" : {
+                        "first_name" : "Kimberly",
+                        "last_name" : "Thompson",
+                        "gender" : "F",
+                        "race" : "Dwarf",
+                        "birthday" : "1996-11-11",
+                        "age" : "25"
+                },
+                "physical_characteristics" : {
+                        "has_disability" : "no deficiency",
+                        "color_hair" : "Blue",
+                        "color_skill" : "WHITE",
+                        "scar" : "Back",
+                        "color_eyes" : "Blue"
+                },
+                "social_characteristics" : {
+                        "security_social_number" : "740-38-7150",
+                        "phone" : "+1-705-306-4346x28383",
+                        "sketch" : "https://dummyimage.com/716x261"
+                }
+        }
+}
+
+```
+>> collection fruit_user
+
+```
+> db.fruit_user.findOne()
+{
+        "_id" : ObjectId("61a8143e22cbec6d05f38f4e"),
+        "payload" : {
+                "personal_characteristics" : {
+                        "first_name" : "Kenneth",
+                        "last_name" : "Brady",
+                        "gender" : "M",
+                        "race" : "Skypiea",
+                        "birthday" : "2000-05-28",
+                        "age" : "21"
+                },
+                "fruit_characteristics" : {
+                        "type_of_fruit" : "Logia",
+                        "fruit_name" : "Bismuth\t Bismuth\t no Mi",
+                        "fruit_category" : "Dangerous",
+                        "number_times_resurrected" : "2"
+                },
+                "job_characteristics" : {
+                        "job" : "Swordsman",
+                        "current_job" : "YES",
+                        "contracting_company" : "Williams, Wilson and Patterson",
+                        "start_date" : "1954/09/01",
+                        "year_working_time" : "67",
+                        "initial_salary" : "4058.0",
+                        "current_wage" : "4423.22"
+                },
+                "physical_characteristics" : {
+                        "type_of_tatoo" : "it does not have",
+                        "where_in_body" : "it does not have",
+                        "color_of_tatoo" : "it does not have",
+                        "color_eyes" : "Red",
+                        "color_hair" : "Red",
+                        "has_disability" : "no deficiency"
+                },
+                "social_characteristics" : {
+                        "security_social_number" : "151-48-5282",
+                        "phone" : "+1-842-853-5857",
+                        "sketch" : "https://dummyimage.com/428x136"
+                },
+                "rewards_informations" : {
+                        "main_crime" : "Tax evasion",
+                        "code_crime" : "9",
+                        "tax_collected_government" : 29491.37,
+                        "debt_with_government" : "25393.37",
+                        "rewards" : "968090.23"
+                }
+        }
 }
 
 ```

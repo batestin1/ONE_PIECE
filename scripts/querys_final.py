@@ -38,19 +38,50 @@ one = spark.read.orc("C:/Users/Bates/Documents/Repositorios/NOSQL/one_piece/stag
 ###################transform########################################
 
 
-one = spark.sql("""SELECT _id, first_name, last_name, gender, race, birthday, age,
-struct(type_of_fruit, fruit_name,fruit_category,  number_times_resurrected ) as akuma_no_mi,
-struct( job, current_job,  contracting_company, start_date,  year_working_time,  initial_salary, current_wage  ) as job,
-type_of_tatoo, where_in_body, color_of_tatoo, color_eyes, color_hair, has_disability, security_social_number,phone,
-struct( main_crime, code_crime,  tax_collected_government,  debt_with_government, rewards ) as rewards,
+censu_notuser_fruit_all = spark.sql("""SELECT _id, first_name, last_name, gender, race, birthday, age,
+type_of_fruit, 
+job, current_job,  contracting_company, start_date,  year_working_time,  initial_salary, current_wage,
+type_of_tatoo, where_in_body, color_of_tatoo,  color_skill, color_eyes, scar, color_hair, has_disability, security_social_number,phone,
+main_crime, code_crime,  tax_collected_government,  debt_with_government,rewards, 
 sketch, register_data as data_of_register
-FROM one""")
+FROM one WHERE type_of_fruit in ('it does not have')""").createOrReplaceTempView("censu_notuser_fruit_filtered")
+
+censu_notuser_fruit_filtered = spark.sql("""SELECT _id, first_name, last_name, gender, race, birthday, age,
+has_disability, color_hair, color_skill, scar, color_eyes, security_social_number, phone, sketch
+FROM censu_notuser_fruit_filtered
+
+""").createOrReplaceTempView("censu_notuser_fruit_payload ") 
+
+censu_notuser_fruit_payload = spark.sql("""SELECT struct(struct(first_name, last_name, gender, race, birthday, age) as personal_characteristics,
+struct(has_disability, color_hair, color_skill, scar, color_eyes) as physical_characteristics, 
+struct(security_social_number, phone, sketch) as social_characteristics
+) as payload FROM censu_notuser_fruit_filtered
+
+""")
+
+censu_user_fruit_all = spark.sql("""SELECT first_name, last_name, gender, race, birthday, age,
+type_of_fruit, fruit_name, fruit_category, number_times_resurrected,
+job, current_job,  contracting_company, start_date,  year_working_time,  initial_salary, current_wage,
+type_of_tatoo, where_in_body, color_of_tatoo, color_eyes, color_hair, has_disability, security_social_number,phone,
+main_crime, code_crime,  tax_collected_government,  debt_with_government, rewards, sketch, register_data
+FROM one WHERE type_of_fruit NOT IN ('it does not have') AND number_times_resurrected < 50""").createOrReplaceTempView("censu_user_fruit_payload")
+
+censu_user_fruit_payload = spark.sql("""SELECT
+struct(struct(first_name, last_name, gender, race, birthday, age) as personal_characteristics,
+struct(type_of_fruit, fruit_name, fruit_category,  number_times_resurrected) as fruit_characteristics,
+struct(job, current_job,  contracting_company, start_date,  year_working_time, initial_salary, current_wage) as job_characteristics,
+struct(type_of_tatoo, where_in_body, color_of_tatoo, color_eyes, color_hair, has_disability) as physical_characteristics,
+struct(security_social_number,phone, sketch) as social_characteristics,
+struct(main_crime, code_crime,  tax_collected_government, debt_with_government,rewards) as rewards_informations
+) as payload FROM censu_user_fruit_payload
+""")
+
 
 ###################load########################################
-
-one.write.format("mongo").mode("append").option("database", "one_piece").option("collection", "censu").save()
-
-one.write.mode("overwrite").format("orc").partitionBy("data_of_register").save("C:/Users/Bates/Documents/Repositorios/NOSQL/one_piece/output/onepiece/")
+censu_notuser_fruit_payload.write.mode("overwrite").format("orc").save("C:/Users/Bates/Documents/Repositorios/NOSQL/one_piece/output/onepiece/censu_notuser_fruit_payload")
+censu_user_fruit_payload.write.mode("overwrite").format("orc").save("C:/Users/Bates/Documents/Repositorios/NOSQL/one_piece/output/onepiece/censu_user_fruit_payload")
+censu_notuser_fruit_payload.write.format("mongo").mode("append").option("database", "one_piece").option("collection", "not_fruit_user").save()
+censu_user_fruit_payload.write.format("mongo").mode("append").option("database", "one_piece").option("collection", "fruit_user").save()
 
 
 

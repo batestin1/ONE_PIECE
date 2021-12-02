@@ -25,3 +25,9 @@ python querys_final.py
 cd ..
 cd dataset
 rm -r json_files
+cd ..
+
+#git
+git add .
+git commit -m "v2 - 20211202"
+git push origin one

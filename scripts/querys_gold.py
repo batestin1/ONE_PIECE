@@ -40,11 +40,13 @@ JO.job, JO.current_job, JO.contracting_company, JO.start_date, JO.year_working_t
 PH.type_of_tatoo, PH.where_in_body, PH.color_of_tatoo, PH.scar, PH.color_eyes, PH.color_hair, PH.color_skill,
 PE.has_disability, PE.security_social_number, PE.phone,
 RE.main_crime, RE.code_crime, RE.tax_collected_government, RE.debt_with_government, RE.rewards,
+AD.region_birth as region, AD.country_birth as country, AD.city_birth as city, AD.street, AD.number, AD.postalcode, AD.mailer,
 PE.sketch, PE.register_data
 FROM persona PE INNER JOIN fruit FR ON PE._id = FR._id
 INNER JOIN job JO ON PE._id = JO._id
 INNER JOIN phy PH on PE._id = PH._id
-INNER JOIN rewards RE on PE._id = RE._id """)
+INNER JOIN rewards RE on PE._id = RE._id 
+INNER JOIN add AD on PE._id = AD._id""")
 
 ###################load########################################
 one.write.mode("overwrite").format("orc").partitionBy("register_data").save("C:/Users/Bates/Documents/Repositorios/NOSQL/one_piece/stagin/gold/orc/one/")

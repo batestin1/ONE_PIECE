@@ -204,27 +204,36 @@ rewards                                                   |string     | rewards 
 ```
 > db.not_fruit_user.findOne()
 {
-        "_id" : ObjectId("61a80938f9fae20940d6d7a9"),
+        "_id" : ObjectId("61ae0e981a5f75689018f0ca"),
         "payload" : {
-                "personal_information" : {
-                        "first_name" : "Kimberly",
-                        "last_name" : "Thompson",
-                        "gender" : "F",
-                        "race" : "Dwarf",
-                        "birthday" : "1996-11-11",
-                        "age" : "25"
+                "personal_characteristics" : {
+                        "first_name" : "Antonio",
+                        "last_name" : "Weaver",
+                        "gender" : "M",
+                        "race" : "Tenryūbitos",
+                        "birthday" : "1964-08-19",
+                        "age" : "57"
                 },
                 "physical_characteristics" : {
-                        "has_disability" : "no deficiency",
-                        "color_hair" : "Blue",
-                        "color_skill" : "WHITE",
-                        "scar" : "Back",
-                        "color_eyes" : "Blue"
+                        "has_disability" : "left leg amputation",
+                        "color_hair" : "Crimson",
+                        "color_skill" : "BLUISH",
+                        "scar" : "Left arm",
+                        "color_eyes" : "Crimson"
                 },
                 "social_characteristics" : {
-                        "security_social_number" : "740-38-7150",
-                        "phone" : "+1-705-306-4346x28383",
-                        "sketch" : "https://dummyimage.com/716x261"
+                        "security_social_number" : "622-15-8792",
+                        "phone" : "001-935-652-4806x982",
+                        "sketch" : "https://www.lorempixel.com/820/394"
+                },
+                "address_information" : {
+                        "region" : "West Blue",
+                        "country" : "Country of Kano",
+                        "city" : "West Wendy",
+                        "street" : "Timothy Trail",
+                        "number" : "047",
+                        "postalcode" : "75496",
+                        "mailer" : "antonio.sout047@onepiece.com.br"
                 }
         }
 }
@@ -235,52 +244,61 @@ rewards                                                   |string     | rewards 
 ```
 > db.fruit_user.findOne()
 {
-        "_id" : ObjectId("61a8143e22cbec6d05f38f4e"),
+        "_id" : ObjectId("61ae115a1a5f7568901933b4"),
         "payload" : {
                 "personal_characteristics" : {
-                        "first_name" : "Kenneth",
-                        "last_name" : "Brady",
+                        "first_name" : "Patrick",
+                        "last_name" : "Miller",
                         "gender" : "M",
-                        "race" : "Skypiea",
-                        "birthday" : "2000-05-28",
-                        "age" : "21"
+                        "race" : "Giants",
+                        "birthday" : "1942-03-20",
+                        "age" : "79"
                 },
                 "fruit_characteristics" : {
-                        "type_of_fruit" : "Logia",
-                        "fruit_name" : "Bismuth\t Bismuth\t no Mi",
-                        "fruit_category" : "Dangerous",
-                        "number_times_resurrected" : "2"
+                        "type_of_fruit" : "Paramecia",
+                        "fruit_name" : "Nail file Nail file no Mi",
+                        "fruit_category" : "Threatening",
+                        "number_times_resurrected" : "63"
                 },
                 "job_characteristics" : {
-                        "job" : "Swordsman",
-                        "current_job" : "YES",
-                        "contracting_company" : "Williams, Wilson and Patterson",
-                        "start_date" : "1954/09/01",
-                        "year_working_time" : "67",
-                        "initial_salary" : "4058.0",
-                        "current_wage" : "4423.22"
+                        "job" : "Medice",
+                        "current_job" : "NO",
+                        "contracting_company" : "Espinoza PLC",
+                        "start_date" : "1957/03/15",
+                        "year_working_time" : "64",
+                        "initial_salary" : "6980.0",
+                        "current_wage" : "7608.2"
                 },
                 "physical_characteristics" : {
                         "type_of_tatoo" : "it does not have",
                         "where_in_body" : "it does not have",
                         "color_of_tatoo" : "it does not have",
-                        "color_eyes" : "Red",
-                        "color_hair" : "Red",
+                        "color_eyes" : "GreenYellow",
+                        "color_hair" : "GreenYellow",
                         "has_disability" : "no deficiency"
                 },
                 "social_characteristics" : {
-                        "security_social_number" : "151-48-5282",
-                        "phone" : "+1-842-853-5857",
-                        "sketch" : "https://dummyimage.com/428x136"
+                        "security_social_number" : "088-98-1504",
+                        "phone" : "001-067-966-9205x26526",
+                        "sketch" : "https://www.lorempixel.com/900/849"
                 },
                 "rewards_informations" : {
-                        "main_crime" : "Tax evasion",
-                        "code_crime" : "9",
-                        "tax_collected_government" : 29491.37,
-                        "debt_with_government" : "25393.37",
-                        "rewards" : "968090.23"
+                        "main_crime" : "Murders",
+                        "code_crime" : "2",
+                        "tax_collected_government" : 55174.7,
+                        "debt_with_government" : "52004.7",
+                        "rewards" : "947598.4"
+                },
+                "address_information" : {
+                        "region" : "Sky",
+                        "country" : "Shandora",
+                        "city" : "Riggschester",
+                        "street" : "Denise Villages",
+                        "number" : "61234",
+                        "postalcode" : "06882",
+                        "mailer" : "patrick.sout61234@onepiece.com.br",
+                        "sketch" : "https://www.lorempixel.com/900/849"
                 }
         }
 }
-
 ```
